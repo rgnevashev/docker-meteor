@@ -1,0 +1,14 @@
+FROM node:argon-alpine
+
+WORKDIR /home/node
+
+# Install git, curl
+RUN apk --update add python make g++
+
+RUN npm install -g node-gyp
+
+EXPOSE 80
+
+# Execute entrypoint as user meteor
+ENTRYPOINT ["/bin/sh"]
+CMD []
