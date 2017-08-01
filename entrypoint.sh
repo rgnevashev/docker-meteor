@@ -12,7 +12,7 @@ set -e
 : ${SETTINGS_FILE:=""}        # Location of settings.json file
 : ${SETTINGS_URL:=""}         # Remote source for settings.json
 : ${MONGO_URL:="mongodb://${MONGO_PORT_27017_TCP_ADDR}:${MONGO_PORT_27017_TCP_PORT}/${DB}"}
-: ${PORT:="80"}
+: ${PORT:="3000"}
 : ${RELEASE:="latest"}
 
 export MONGO_URL
@@ -156,7 +156,7 @@ if [ -e ${BUNDLE_DIR}/programs/server ]; then
 
    echo "Installing NPM prerequisites..."
    # Install all NPM packages
-   npm install
+   npm install --production
    popd
 else
    echo "Unable to locate server directory in ${BUNDLE_DIR}; hold on: we're likely to fail"
