@@ -1,4 +1,4 @@
-FROM node:argon
+FROM node:carbon
 
 # Create user meteor who will run all entrypoint instructions
 RUN useradd meteor -G staff -m -s /bin/bash
@@ -17,14 +17,7 @@ RUN npm install -g node-gyp
 COPY entrypoint.sh /usr/bin/entrypoint.sh
 RUN chmod +x /usr/bin/entrypoint.sh
 
-# Add known_hosts file
-# COPY known_hosts .ssh/known_hosts
-
 RUN chown -R meteor:meteor /usr/bin/entrypoint.sh
-
-# Allow node to listen to port 80 even when run by non-root user meteor
-# https://github.com/moby/moby/issues/5650
-# RUN setcap 'cap_net_bind_service=+ep' /usr/bin/node
 
 EXPOSE 3000
 
