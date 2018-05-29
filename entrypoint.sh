@@ -10,7 +10,6 @@ set -e
 : ${SRC_DIR:="${HOME}/src"}      # Location of Meteor app source
 : ${BRANCH:="master"}
 : ${NODE_OPTIONS:=""}         # Options to pass to Node when executing app
-: ${ENVS:=""}                 # ENVs to pass to run command when executing app
 : ${SETTINGS_FILE:=""}        # Location of settings.json file
 : ${SETTINGS_URL:=""}         # Remote source for settings.json
 : ${MONGO_URL:="mongodb://${MONGO_PORT_27017_TCP_ADDR}:${MONGO_PORT_27017_TCP_PORT}/${DB}"}
@@ -186,4 +185,4 @@ fi
 # Run meteor
 cd ${BUNDLE_DIR}
 echo "Starting Meteor Application..."
-exec ${ENVS} node ${NODE_OPTIONS} ./main.js
+exec node ${NODE_OPTIONS} ./main.js
